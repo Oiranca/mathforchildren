@@ -1,0 +1,19 @@
+@use "colorBase";
+
+@mixin button {
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  background: colorBase.$colorButton;
+  border: none;
+  color: colorBase.$textButtonColor;
+  margin-bottom: 0.25rem;
+}
+
+@mixin buttonHover {
+  background: colorBase.$buttonHover;
+  color: colorBase.$textButtonColorHover;
+  border-radius: 8px;
+  transition-duration: 1s, 500ms;
+  transition-property: background, color;
+}
