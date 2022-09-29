@@ -9,11 +9,11 @@ $lightSecondColor: #BCF5FF;
 
 /* Color Button */
 
-$colorButton: $darkPrincipalColor;
-$buttonHover: #EEE8A9;
+$colorButton: #EEE8A9;
+$buttonHover: $darkPrincipalColor;
 
 
 /* Text Color */
 
-$textButtonColor: $lightSecondColor;
-$textButtonColorHover: $principalColor;
+$textButtonColor: $principalColor;
+$textButtonColorHover: $lightSecondColor;

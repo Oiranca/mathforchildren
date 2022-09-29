@@ -1,0 +1,51 @@
+@use './src/style/colorBase';
+@use './src/style/buttonStyle';
+
+
+.main-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+
+  .main-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    padding: 15px;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    border-bottom: 2px solid colorBase.$darkPrincipalColor;
+
+    .item-menu {
+      @include buttonStyle.button;
+
+
+    }
+  }
+
+  .item-menu:hover {
+    @include buttonStyle.buttonHover
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .main-tab {
+    .main-menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-content: center;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 5px;
+      margin: 0.5rem 0;
+      border-bottom: 2px solid colorBase.$darkPrincipalColor;
+    }
+  }
+}
+
+
+
+

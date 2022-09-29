@@ -1,5 +1,6 @@
 import React from "react";
 import "./Container.scss";
+import { MainMenu } from "../MainMenu/MainMenu";
 
 export const Container = () => {
   return (
@@ -8,7 +9,9 @@ export const Container = () => {
         <h1> Math for Children</h1>
       </header>
       <main>
-        <section className={"main-tab"}>Menú Principal</section>
+        <section>
+          <MainMenu />
+        </section>
         <section>Submenu</section>
       </main>
 
