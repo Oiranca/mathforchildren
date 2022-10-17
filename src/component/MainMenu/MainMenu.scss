@@ -19,14 +19,14 @@
     border-bottom: 2px solid colorBase.$darkPrincipalColor;
 
     .item-menu {
-      @include buttonStyle.button;
+      @include buttonStyle.buttonMainMenu;
 
 
     }
   }
 
   .item-menu:hover {
-    @include buttonStyle.buttonHover
+    @include buttonStyle.buttonHoverMainMenu
   }
 
 }

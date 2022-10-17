@@ -1,6 +1,7 @@
 import React from "react";
 import "./Container.scss";
 import { MainMenu } from "../MainMenu/MainMenu";
+import { SubMenu } from "../SubMenu/SubMenu";
 
 export const Container = () => {
   return (
@@ -12,7 +13,9 @@ export const Container = () => {
         <section>
           <MainMenu />
         </section>
-        <section>Submenu</section>
+        <section>
+          <SubMenu />
+        </section>
       </main>
 
       <section className={"operation"}>Aquí las operaciones</section>
