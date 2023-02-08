@@ -1,49 +1,30 @@
 @use './src/style/colorBase';
 @use './src/style/buttonStyle';
 
-
-@mixin submenuStyle {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  text-align: center;
-}
-
-@mixin titleSubmenuStyle {
-  margin: 0.5rem;
-  color: #3b6971;
-}
-
-
-
 @mixin buttonSubmenuStyle {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  list-style: none;
-  width: max-content;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   border-bottom: 2px solid colorBase.$darkPrincipalColor;
-  padding: 0;
 
   .item-menu-option {
-    @include buttonStyle.buttonSubMenu;
+    color: colorBase.$darkPrincipalColor;
+    margin-bottom: 0.50rem;
+
+    label{
+      margin-left: 0.50rem;
+    }
   }
 
-  .item-menu-option:hover {
 
-    @include buttonStyle.buttonHoverSubMenu;
-  }
 }
 
-@mixin buttonSubMainSmallScreen{
+@mixin buttonSubMainSmallScreen {
   display: grid;
+  justify-items: center;
   grid-template-columns: repeat(2, 1fr);
-  align-content: center;
   gap: 0.5rem;
-  list-style: none;
-  padding: 5px;
-  margin: 0.5rem 0;
   border-bottom: 2px solid colorBase.$darkPrincipalColor;
 }
 

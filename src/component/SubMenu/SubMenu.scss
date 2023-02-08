@@ -1,21 +1,15 @@
 @use "src/style/colorBase";
 @use './src/style/subMenuStyle';
 
-.operation-menu-box, .operation-menu-box:hover {
-  @include subMenuStyle.submenuStyle;
-  @include subMenuStyle.titleSubmenuStyle;
 
   .menu-option {
     @include subMenuStyle.buttonSubmenuStyle;
-  }
 }
 
 
 @media screen and (max-width: 768px) {
-  .operation-menu-box {
 
     .menu-option {
       @include subMenuStyle.buttonSubMainSmallScreen;
-    }
   }
 }
