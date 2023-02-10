@@ -2,27 +2,34 @@ import React from "react";
 import "./SubMenu.scss";
 
 export const SubMenu = () => {
+    const valueOption = (eventValue: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const value = eventValue.currentTarget.value;
+        console.log(value)
+    }
     return (
-            <main className="menu-option">
-                <div className="item-menu-option">
-                    <input type={'radio'} value={'Un dígito'}/>
-                    <label htmlFor="Un dígito">Un dígito</label>
-                </div>
-                <div className="item-menu-option">
-                    <input type={'radio'} value={'Dos dígitos'}/>
-                    <label htmlFor="Dos dígitos">Dos dígitos</label>
+        <main className="menu-option">
+            <h3 id={'title-range'}>Seleciona cuantos dígitos quieres</h3>
 
-                </div>
-                <div className="item-menu-option">
-                    <input type={'radio'} value={'Tres dígitos'}></input>
-                    <label htmlFor="Tres dígitos">Tres dígitos</label>
+            <div className="option-box">
+                <button className={'button-range'} type={"button"}
+                        onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => valueOption(event)}
+                        value={1}>Uno
+                </button>
+                <button className={'button-range'} type={"button"}
+                        onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => valueOption(event)}
+                        value={2}>Dos
+                </button>
+                <button className={'button-range'} type={"button"}
+                        onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => valueOption(event)}
+                        value={3}>Tres
+                </button>
+                <button className={'button-range'} type={"button"}
+                        onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => valueOption(event)}
+                        value={4}>Cuatro
+                </button>
+            </div>
+        </main>
 
-                </div>
-                <div className="item-menu-option">
-                    <input type={'radio'} value={'Más dígitos'}/>
-                    <label htmlFor="Más dígitos">Más dígitos</label>
 
-                </div>
-            </main>
     );
 };
