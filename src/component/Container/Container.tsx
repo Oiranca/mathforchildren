@@ -1,6 +1,7 @@
 import React from "react";
 import {MainMenu} from "../MainMenu/MainMenu";
 import {SubMenu} from "../SubMenu/SubMenu";
+import {Operation} from "../Operation/Operation";
 import "./Container.scss";
 
 export const Container = () => {
@@ -18,7 +19,7 @@ export const Container = () => {
                 </section>
             </main>
 
-            <section className={"operation"}>Aquí las operaciones</section>
+            <section className={"operation"}><Operation/></section>
         </div>
     );
 };
