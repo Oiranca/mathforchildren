@@ -1,0 +1,39 @@
+@use "colorBase";
+
+@mixin buttonMainMenu {
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  background: colorBase.$colorButton;
+  border: none;
+  border-radius: 8px;
+  color: colorBase.$textButtonColor;
+  margin-bottom: 0.25rem;
+}
+
+@mixin buttonHoverMainMenu {
+  background: colorBase.$buttonHover;
+  color: colorBase.$textButtonColorHover;
+  border-radius: 8px;
+  transition-duration: 1s, 500ms;
+  transition-property: background, color;
+}
+
+@mixin buttonSubMenu{
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  color: colorBase.$darkPrincipalColor;
+  margin-bottom: 0.25rem;
+}
+
+@mixin buttonHoverSubMenu{
+
+  background: colorBase.$buttonHover;
+  color: white;
+  border-radius: 8px;
+  transition-duration: 1s, 500ms;
+  transition-property: background, color;
+}

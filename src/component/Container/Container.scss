@@ -1,0 +1,15 @@
+@use './src/style/colorBase';
+
+.container-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #title {
+    color: colorBase.$darkPrincipalColor;
+    margin: 0.25rem 0.5rem;
+
+  }
+
+}
