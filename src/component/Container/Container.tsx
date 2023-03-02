@@ -5,20 +5,37 @@ import {Operation} from "../Operation/Operation";
 import correct from '../../img/correct.png'
 import "./Container.scss";
 
+// interface range {
+//     [key: number]: number[];
+// }
+
 export const Container = () => {
 
     const [qualify, setQualify] = useState<number>(0);
     const [revise, setRevise] = useState<boolean>(true);
     const [resultView, setResultView] = useState<string>('');
+    const [digitSelected, setDigitSelected] = useState<number>(0);
+    const [dataForExercise, setDataForExercise] = useState<Record<string, string | number>>({
+        'firstNumberOperation': 0,
+        'secondNumberOperation': 0,
+        'typeOperation': ''
+    });
 
     useEffect(() => {
         setResultView(qualify > 5 ? 'result-pass' : 'result-fail')
-    }, [qualify])
+    }, [qualify]);
 
     const calculateResult = (event: React.ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log('resultado')
     };
+    const typeOperation = (type: string) => {
+        setDataForExercise({...dataForExercise, typeOperation: type});
+    }
+
+    const numberOfDigit = (quantitySelected: number) => {
+        setDigitSelected(quantitySelected);
+    }
 
     return (
         <div className={"container-box"}>
@@ -27,24 +44,24 @@ export const Container = () => {
             </header>
             <main>
                 <section>
-                    <MainMenu/>
+                    <MainMenu operation={typeOperation}/>
                 </section>
                 <section>
-                    <SubMenu/>
+                    <SubMenu digit={numberOfDigit}/>
                 </section>
             </main>
 
             <form className={"operation"} onSubmit={calculateResult}>
-                <Operation typeOperation={"+"} keyOperation={0}/>
-                <Operation typeOperation={"+"} keyOperation={1}/>
-                <Operation typeOperation={"+"} keyOperation={2}/>
-                <Operation typeOperation={"+"} keyOperation={3}/>
-                <Operation typeOperation={"+"} keyOperation={4}/>
-                <Operation typeOperation={"+"} keyOperation={5}/>
-                <Operation typeOperation={"+"} keyOperation={6}/>
-                <Operation typeOperation={"+"} keyOperation={7}/>
-                <Operation typeOperation={"+"} keyOperation={8}/>
-                <Operation typeOperation={"+"} keyOperation={9}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
+                <Operation digit={digitSelected}/>
                 <input type={"image"} className={'image-result'} alt={'type result'} src={correct}/>
                 <div className={'submit-result'}>
 

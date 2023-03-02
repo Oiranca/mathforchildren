@@ -1,10 +1,13 @@
 import React from "react";
 import "./SubMenu.scss";
 
-export const SubMenu = () => {
+type Quantity = {
+    digit: (numberOfDigit: number) => void;
+};
+export const SubMenu = ({digit}: Quantity) => {
     const valueOption = (eventValue: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const value = eventValue.currentTarget.value;
-        console.log(value)
+        digit(parseInt(value));
     }
     return (
         <main className="menu-option">
