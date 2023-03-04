@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import './Operation.scss'
 import {dataForOperation} from "../../method/DataForOperation/dataForOperation";
+import incorrect from '../../img/incorrect.png';
+import './Operation.scss'
 
 type DataForOperation = {
     digit: number,
@@ -46,7 +47,7 @@ export const Operation = ({digit, typeOfOperation}: DataForOperation) => {
     }, [resultOperation])
     return (
         <>
-            <div className={'operation-box'}>
+            {typeOfOperation !== '/' ? <div className={'operation-box'}>
                 <div className="symbol">{typeOperation}</div>
                 <div className="firstNumber">{data.firstNumberOperation}</div>
                 <div className="secondNumber">{data.secondNumberOperation}</div>
@@ -56,8 +57,13 @@ export const Operation = ({digit, typeOfOperation}: DataForOperation) => {
                            value={resultOperation}
                            onChange={getChange}/>
                 </div>
-            </div>
+            </div> : <div className={'information-box'}>
+                <h4>En Construcción</h4>
+                <input type={"image"} className={'image-information'} alt={'type result'} src={incorrect}/>
+
+            </div>}
+
 
         </>
     )
-}
+};
