@@ -14,11 +14,7 @@ export const Container = () => {
     const [revise, setRevise] = useState<boolean>(true);
     const [resultView, setResultView] = useState<string>('result-pass');
     const [digitSelected, setDigitSelected] = useState<number>(0);
-    const [dataForExercise, setDataForExercise] = useState<Record<string, string | number>>({
-        'firstNumberOperation': 0,
-        'secondNumberOperation': 0,
-        'typeOperation': ''
-    });
+    const [typeOfExercise, setTypeOfExercise] = useState<string>('');
 
     useEffect(() => {
         setResultView(qualify >= 5 ? 'result-pass' : 'result-fail')
@@ -28,7 +24,7 @@ export const Container = () => {
         event.preventDefault();
     };
     const typeOperation = (type: string) => {
-        setDataForExercise({...dataForExercise, typeOperation: type});
+        setTypeOfExercise(type);
     }
 
     const numberOfDigit = (quantitySelected: number) => {
@@ -49,23 +45,24 @@ export const Container = () => {
                 </section>
             </main>
 
-            <form className={"operation"} onSubmit={calculateResult}>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <Operation digit={digitSelected}/>
-                <div className={'submit-result'}>
-                    <p id={resultView}>{revise ? 'Nota :' : `Nota : ${qualify}/10`}</p>
-                    <button className={'button-result'} type={"submit"}>Corregir</button>
+            {typeOfExercise !== '' && digitSelected !== 0 &&
+                <form className={"operation"} onSubmit={calculateResult}>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <div className={'submit-result'}>
+                        <p id={resultView}>{revise ? 'Nota :' : `Nota : ${qualify}/10`}</p>
+                        <button className={'button-result'} type={"submit"}>Corregir</button>
 
-                </div>
-            </form>
+                    </div>
+                </form>}
         </div>
     );
 };
