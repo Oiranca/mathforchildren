@@ -2,12 +2,14 @@ import React, {useEffect, useState} from "react";
 import {dataForOperation} from "../../method/DataForOperation/dataForOperation";
 import incorrect from '../../img/incorrect.png';
 import './Operation.scss'
+import {randomKeyValue} from "../../method/RandomKeyValue/randomKeyValue";
 
 type DataForOperation = {
-    digit: number,
+    digit: number
     typeOfOperation: string
+    result: (result: number) => void;
 };
-export const Operation = ({digit, typeOfOperation}: DataForOperation) => {
+export const Operation = ({digit, typeOfOperation, result}: DataForOperation) => {
     const [resultOperation, setResultOperation] = useState<string>('');
     const [typeOperation, setTypeOperation] = useState<string>('');
     const [errorInputChange, setErrorInputChange] = useState<boolean>(false);
@@ -30,21 +32,23 @@ export const Operation = ({digit, typeOfOperation}: DataForOperation) => {
             setTypeOperation(typeOfOperation);
         }
     }, [typeOfOperation]);
-    const getChange = (eventValue: React.ChangeEvent<HTMLInputElement>) => {
+    const resultChange = (eventValue: React.ChangeEvent<HTMLInputElement>) => {
+        const isNumber = RegExp(/^\d+$/);
         const valueResult = eventValue.currentTarget.value;
-        setResultOperation(valueResult);
 
+        if (isNumber.test(valueResult)) {
+
+            setResultOperation(valueResult);
+            setErrorInputChange(false);
+            result(parseInt(valueResult));
+
+        } else {
+            setErrorInputChange(true);
+
+        }
     };
 
 
-    useEffect(() => {
-        if (isNaN(parseInt(resultOperation)) && resultOperation !== '') {
-            setErrorInputChange(true);
-        } else {
-            setErrorInputChange(false);
-
-        }
-    }, [resultOperation])
     return (
         <>
             {typeOfOperation !== '/' ? <div className={'operation-box'}>
@@ -55,7 +59,7 @@ export const Operation = ({digit, typeOfOperation}: DataForOperation) => {
                     <input type={'text'}
                            id={errorInputChange ? 'input-error' : 'input-result'}
                            value={resultOperation}
-                           onChange={getChange}/>
+                           onChange={resultChange} name={randomKeyValue()}/>
                 </div>
             </div> : <div className={'information-box'}>
                 <h4>En Construcción</h4>

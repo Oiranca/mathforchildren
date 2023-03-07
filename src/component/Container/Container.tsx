@@ -30,7 +30,9 @@ export const Container = () => {
     const numberOfDigit = (quantitySelected: number) => {
         setDigitSelected(quantitySelected);
     }
-
+    const resultInput = (resultIntroduce: number) => {
+        console.log(resultIntroduce);
+    }
     return (
         <div className={"container-box"}>
             <header id={"title"}>
@@ -47,16 +49,16 @@ export const Container = () => {
 
             {typeOfExercise !== '' && digitSelected !== 0 &&
                 <form className={"operation"} onSubmit={calculateResult}>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
-                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
+                    <Operation digit={digitSelected} typeOfOperation={typeOfExercise} result={resultInput}/>
                     <div className={'submit-result'}>
                         <p id={resultView}>{revise ? 'Nota :' : `Nota : ${qualify}/10`}</p>
                         <button className={'button-result'} type={"submit"}>Corregir</button>
